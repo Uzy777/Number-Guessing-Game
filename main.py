@@ -1,5 +1,6 @@
-# Required module to use randint
+# Required module to use randint and time
 import random
+import time
 
 # When the game starts, it should display a welcome message along with the rules of the game
 print("Welcome to the Number Guessing Game!")
@@ -34,7 +35,11 @@ else:
     quit()
 print("Let's start the game!")
 
+# Add a timer to see how long it takes the user to guess the number.
+start_time = time.time()
+
 while True:
+
     # The user should be able to enter their guess
     guess = input("\nEnter your guess: ")
 
@@ -45,6 +50,10 @@ while True:
     # The game should end when the user guesses the correct number or runs out of chances
     if int(guess) == computer:
         print(f"Congratulations! You guessed the correct number in {attempt} attempts.")
+        # Add a timer to see how long it takes the user to guess the number
+        end_time = time.time()
+        elpased_time = round(end_time - start_time, 2)
+        print(f"It only took you {elpased_time} seconds.")
         break
     elif int(guess) < computer:
         print(f"Incorrect! The number is greater than {guess}.")
