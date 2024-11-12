@@ -5,7 +5,7 @@ import time
 # When the game starts, it should display a welcome message along with the rules of the game
 print("Welcome to the Number Guessing Game!")
 print("I'm thinking of a number between 1 and 100.")
-print("You have 5 chances to guess the correct number.")
+print("You have to guess the correct number.")
 
 # The computer should randomly select a number between 1 and 100
 computer = random.randint(1, 101)
