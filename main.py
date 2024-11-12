@@ -15,6 +15,7 @@ print("2. Medium (5 chances)")
 print("3. Hard (3 chances)")
 
 chance = 0
+attempt = 0
 
 # User should select the difficulty level (easy, medium, hard) which will determine the number of chances they get to guess the number
 choice = input("\nEnter your choice: ")
@@ -33,17 +34,24 @@ else:
     quit()
 print("Let's start the game!")
 
-# The user should be able to enter their guess
-guess = input("\nEnter your guess: ")
+while True:
+    # The user should be able to enter their guess
+    guess = input("\nEnter your guess: ")
 
-attempt = len(guess)
+    # If the user’s guess is correct, the game should display a congratulatory message along with the number of attempts it took to guess the number
+    attempt = attempt + 1
 
-# # If the user’s guess is correct, the game should display a congratulatory message along with the number of attempts it took to guess the number
-# if guess == computer:
-#     print(f"Congratulations! You guessed the correct number in {attempt} attempts.")
-# elif guess > computer:
-#     print(f"Incorrect! The number is greater than {guess}.")
-# elif guess < computer:
-#     print(f"Incorrect! The number is less than {guess}.")
-# else:
-#     pass
+    # If the user’s guess is incorrect, the game should display a message indicating whether the number is greater or less than the user’s guess
+    # The game should end when the user guesses the correct number or runs out of chances
+    if int(guess) == computer:
+        print(f"Congratulations! You guessed the correct number in {attempt} attempts.")
+        break
+    elif int(guess) < computer:
+        print(f"Incorrect! The number is greater than {guess}.")
+    elif int(guess) > computer:
+        print(f"Incorrect! The number is less than {guess}.")
+    if attempt == chance:
+        print("You have ran out of chances! Please restart the Game!")
+        break
+    # else:
+    #     print("Please enter a valid number as your guess!")
